@@ -1,0 +1,26 @@
+apiVersion: gitlab.organization.io/v1alpha1
+kind: xTeamEnvironment
+metadata:
+  name: test
+  namespace: default
+spec:
+  compositionSelector:
+    matchLabels:
+      type: dynamic
+  environmentVariables:
+    - key: API_URL
+      masked: false
+      protected: true
+      value: https://api.example.com
+    - key: DEBUG
+      masked: false
+      protected: false
+      value: "true"
+    - key: LOG_LEVEL
+      masked: false
+      protected: false
+      value: info
+  projectDescription: A short description
+  projectName: test-repo
+  teamName: test-team
+  visibilityLevel: internal
