@@ -1,0 +1,25 @@
+apiVersion: gitlab.organization.io/v1alpha1
+kind: TeamEnvironment
+metadata:
+  name: team-port
+  namespace: default
+spec:
+  crossplane_compositionSelector:
+    matchLabels:
+      type: dynamic
+  environmentVariables:
+    - key: API_URL
+      masked: false
+      protected: true
+      value: https://api.example.com
+    - key: DEBUG
+      masked: false
+      protected: false
+      value: "true"
+    - key: LOG_LEVEL
+      masked: false
+      protected: false
+      value: info
+  projectName: project-port
+  teamName: port
+  visibilityLevel: private
